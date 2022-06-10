@@ -35,13 +35,13 @@ public class DriverController {
         Driver driver = new Driver();
         BeanUtils.copyProperties(requestModel, driver);
         driverService.createDriver(driver);
-        return new ResponseEntity<>(new CreateDriverResponseModel(driver.getId()), HttpStatus.CREATED);
+        return new ResponseEntity<>(new CreateDriverResponseModel(driver.getId()), HttpStatus.OK);
     }
 
     @PostMapping("/registerVehicle")
     public ResponseEntity<RegisterVehicleResponseModel> registerVehicle(@Valid @RequestBody RegisterVehicleRequestModel requestModel) {
         Vehicle vehicle = driverService.registerVehicle(requestModel);
-        return new ResponseEntity<>(new RegisterVehicleResponseModel(vehicle.getId()), HttpStatus.CREATED);
+        return new ResponseEntity<>(new RegisterVehicleResponseModel(vehicle.getId()), HttpStatus.OK);
     }
 
     @GetMapping("/profile/{id}")
