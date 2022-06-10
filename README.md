@@ -9,7 +9,7 @@ Java 11
 ## App Links 
 
 * URL: [http://localhost:8080](http://localhost:8080)
-* Swagger UI - [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui)
+* Swagger UI - [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 * H2 DB Console - [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
   * URL: jdbc:h2:~/uberDB
   * username: sa
