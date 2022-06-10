@@ -36,4 +36,15 @@ Java 11
   * Create Trip - POST - http://localhost:8008/api/customer/trip
   * Rate Driver after Trip Completion - POST - http://localhost:8008/api/customer/rateDriver
 
+## BootStrapped Data to use APIs
+
+* Customer
+  * Id: 1, Name: John Smith
+  * Id: 2, Name: Michael Jordan
+  
+* Driver
+  * Id: 6, Name: Ionut Popa
+  * Id: 11, Name: Adrian Crisan
+
+
 
