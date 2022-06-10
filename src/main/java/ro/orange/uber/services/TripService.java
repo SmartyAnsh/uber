@@ -179,7 +179,7 @@ public class TripService {
         paymentRepository.save(tripPayment);
     }
 
-    public void createTrip(CreateTripRequestModel requestModel) {
+    public long createTrip(CreateTripRequestModel requestModel) {
         Trip trip = new Trip();
         trip.setCurrency(Currency.getInstance("RON"));
         trip.setStatus(TripStatus.CREATED);
@@ -191,6 +191,7 @@ public class TripService {
         trip.setFare(new BigDecimal("200"));
         trip.setPaymentAuthFareRate(new BigDecimal("0.2"));
         trip = tripRepository.save(trip);
+        return trip.getId();
     }
 
     public void rateDriver(RateDriverRequestModel requestModel) {

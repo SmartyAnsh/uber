@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ro.orange.uber.controllers.model.request.CreateTripRequestModel;
 import ro.orange.uber.controllers.model.request.RateDriverRequestModel;
+import ro.orange.uber.controllers.model.response.CreateTripResponseModel;
 import ro.orange.uber.services.TripService;
 
 import javax.validation.Valid;
@@ -21,9 +22,9 @@ public class CustomerController {
     private TripService tripService;
 
     @PostMapping("/trip")
-    public ResponseEntity createTrip(@Valid @RequestBody CreateTripRequestModel requestModel) {
-        tripService.createTrip(requestModel);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<CreateTripResponseModel> createTrip(@Valid @RequestBody CreateTripRequestModel requestModel) {
+        long tripId = tripService.createTrip(requestModel);
+        return new ResponseEntity<>(new CreateTripResponseModel(tripId), HttpStatus.OK);
     }
 
     @PostMapping("/rateDriver")
