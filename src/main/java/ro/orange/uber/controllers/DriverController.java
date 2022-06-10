@@ -11,7 +11,6 @@ import ro.orange.uber.controllers.model.response.*;
 import ro.orange.uber.entities.Driver;
 import ro.orange.uber.entities.Vehicle;
 import ro.orange.uber.services.DriverService;
-import ro.orange.uber.services.PaymentService;
 import ro.orange.uber.services.TripService;
 
 import javax.validation.Valid;
@@ -24,13 +23,11 @@ public class DriverController {
 
     private DriverService driverService;
     private TripService tripService;
-    private PaymentService paymentService;
 
     @Autowired
-    public DriverController(DriverService driverService, TripService tripService, PaymentService paymentService) {
+    public DriverController(DriverService driverService, TripService tripService) {
         this.driverService = driverService;
         this.tripService = tripService;
-        this.paymentService = paymentService;
     }
 
     @PostMapping("/register")

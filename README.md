@@ -1,5 +1,7 @@
 # Getting Started
 
+Uber Backend for Driver's Mobile App
+
 ## Pre-requisite
 
 Java 11
@@ -13,7 +15,7 @@ Java 11
   * username: sa
   * password: password
 
-## APIs
+## Main APIs
 * Driver APIs 
   * Register Driver - POST - http://localhost:8080/api/driver/register
   * Register Vehicle - POST - http://localhost:8080/api/driver/registerVehicle
@@ -25,5 +27,13 @@ Java 11
   * Acquire Trip - POST - http://localhost:8080/api/trip/acquire
   * Start Trip - POST - http://localhost:8080/api/trip/start
   * Terminate Trip - POST - http://localhost:8080/api/trip/terminate
+* Payment APIs
+  * Receive Payment Callback - POST - http://localhost:8008/api/trip/paymentCallback
+
+## Helper APIs 
+
+* Customer APIs
+  * Create Trip - POST - http://localhost:8008/api/customer/trip
+  * Rate Driver after Trip Completion - POST - http://localhost:8008/api/customer/rateDriver
 
 

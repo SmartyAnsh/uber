@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 
@@ -80,11 +79,11 @@ public class Trip {
     public boolean isStartedToday() {
         LocalDate today = LocalDate.now();
         LocalDate startDate = this.getStartTimestamp().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return today.equals(startDate) ? true: false;
+        return today.equals(startDate) ? true : false;
     }
 
     public long getTripTimeInSeconds() {
-        return (long)(endTimestamp.getTime() - startTimestamp.getTime())/1000;
+        return (long) (endTimestamp.getTime() - startTimestamp.getTime()) / 1000;
     }
 
     public Trip() {

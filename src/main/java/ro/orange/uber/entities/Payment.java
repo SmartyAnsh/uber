@@ -39,7 +39,7 @@ public class Payment {
     private Date lastUpdated;
 
     public Payment() {
-
+        this.dateCreated = new Date();
     }
 
     public Payment(Date paymentInitiationTimestamp, PaymentStatus status, BigDecimal paidAmount, Currency currency, Trip trip, Customer customer) {

@@ -5,11 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.orange.uber.controllers.model.request.AcquireTripRequestModel;
+import ro.orange.uber.controllers.model.request.PaymentCallbackRequestModel;
 import ro.orange.uber.controllers.model.request.StartTripRequestModel;
 import ro.orange.uber.controllers.model.request.TerminateTripRequestModel;
 import ro.orange.uber.controllers.model.response.TripDetailsResponseModel;
-import ro.orange.uber.entities.Driver;
-import ro.orange.uber.services.PaymentService;
 import ro.orange.uber.services.TripService;
 
 import javax.validation.Valid;
@@ -19,12 +18,10 @@ import javax.validation.Valid;
 public class TripController {
 
     private TripService tripService;
-    private PaymentService paymentService;
 
     @Autowired
-    public TripController(TripService tripService, PaymentService paymentService) {
+    public TripController(TripService tripService) {
         this.tripService = tripService;
-        this.paymentService = paymentService;
     }
 
     @GetMapping("/details/{id}")
@@ -69,6 +66,12 @@ public class TripController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PostMapping("/paymentCallback")
+    public ResponseEntity<Boolean> receivePaymentCallback(@Valid @RequestBody PaymentCallbackRequestModel requestModel) {
+        tripService.processPaymentCallback(requestModel);
+        return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
 }
